@@ -3,7 +3,7 @@ package xyz.ronella.template.http.controller;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-import xyz.ronella.template.http.ioc.PersonModule;
+import xyz.ronella.template.http.config.PersonModule;
 import xyz.ronella.template.http.wrapper.SimpleHttpExchange;
 
 import java.util.Optional;

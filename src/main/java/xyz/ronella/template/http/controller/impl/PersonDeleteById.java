@@ -34,6 +34,6 @@ public class PersonDeleteById extends AbstractPersonResource {
 
     @Override
     public String getPathPattern() {
-        return "^/person/(\\d*)$";
+        return String.format("^%s/person/(\\d*)$", getBaseURL());
     }
 }

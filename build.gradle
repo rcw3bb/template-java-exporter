@@ -52,13 +52,26 @@ test {
 task preparePackage(dependsOn: ['jlink']) {
     doLast {
         def projectName = "${project.name}-${version}"
+
         def batchFile = "${project.name}.bat"
         def batchPath = Paths.get(buildDir.absolutePath, projectName, batchFile).toFile()
+
+        def confDirectory = "conf"
+        def confPath = Paths.get(rootDir.absolutePath, confDirectory)
+
+        def jlinkTargetDir = Paths.get(buildDir.absolutePath, projectName)
+        def jlinkBinDir = Paths.get(jlinkTargetDir.toFile().absolutePath, "bin")
+        def jlinkConfDir = Paths.get(jlinkBinDir.toFile().absolutePath, "..", confDirectory)
 
         copy {
             from(Paths.get(buildDir.absolutePath, projectName, "bin"))
             into(Paths.get(buildDir.absolutePath, projectName))
             include batchFile
+        }
+
+        copy {
+            from(confPath)
+            into(jlinkConfDir)
         }
 
         if (batchPath.exists()) {

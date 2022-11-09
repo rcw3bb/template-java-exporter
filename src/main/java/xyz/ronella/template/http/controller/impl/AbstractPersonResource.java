@@ -1,7 +1,8 @@
 package xyz.ronella.template.http.controller.impl;
 
+import xyz.ronella.template.http.config.AppConfig;
 import xyz.ronella.template.http.controller.IResource;
-import xyz.ronella.template.http.ioc.PersonModule;
+import xyz.ronella.template.http.config.PersonModule;
 import xyz.ronella.template.http.model.Person;
 import xyz.ronella.template.http.service.IPersonService;
 import xyz.ronella.template.http.wrapper.SimpleHttpExchange;
@@ -16,6 +17,10 @@ public abstract class AbstractPersonResource implements IResource {
 
     protected IPersonService personService;
     private Matcher pathMatcher;
+
+    protected String getBaseURL() {
+        return AppConfig.INSTANCE.getBaseURL();
+    }
 
     public AbstractPersonResource() {
         this.personService = PersonModule.getInstance(IPersonService.class);
@@ -36,7 +41,7 @@ public abstract class AbstractPersonResource implements IResource {
 
     @Override
     public String getPathPattern() {
-        return "^/person$";
+        return String.format("^%s/person$", getBaseURL());
     }
 
     public String personToJson(Person person) {

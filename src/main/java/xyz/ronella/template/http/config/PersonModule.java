@@ -1,4 +1,4 @@
-package xyz.ronella.template.http.ioc;
+package xyz.ronella.template.http.config;
 
 import com.google.inject.AbstractModule;
 

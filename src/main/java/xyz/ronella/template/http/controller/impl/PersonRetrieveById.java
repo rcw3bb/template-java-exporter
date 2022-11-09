@@ -30,6 +30,6 @@ public class PersonRetrieveById extends PersonRetrieveAll {
 
     @Override
     public String getPathPattern() {
-        return "^/person/(\\d*)$";
+        return String.format("^%s/person/(\\d*)$", getBaseURL());
     }
 }
