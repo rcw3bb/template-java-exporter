@@ -2,6 +2,9 @@ package xyz.ronella.template.http.wrapper;
 
 import com.sun.net.httpserver.HttpExchange;
 
+import org.slf4j.LoggerFactory;
+import xyz.ronella.logging.LoggerPlus;
+import xyz.ronella.template.http.Application;
 import xyz.ronella.template.http.commons.ContentType;
 import xyz.ronella.template.http.commons.Method;
 import xyz.ronella.template.http.commons.ResponseStatus;
@@ -13,6 +16,8 @@ import java.net.URI;
 import java.util.Optional;
 
 public class SimpleHttpExchange {
+
+    private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(SimpleHttpExchange.class));
 
     protected final HttpExchange exchange;
     public SimpleHttpExchange(final HttpExchange exchange) {
@@ -44,14 +49,17 @@ public class SimpleHttpExchange {
     }
 
     public void sendResponseText(final int responseCode, final String responseText) {
-        final var responseBytes = responseText.getBytes();
-        try {
-            exchange.sendResponseHeaders(responseCode, responseBytes.length);
-            try (var os = exchange.getResponseBody()) {
-                os.write(responseBytes);
+        try(var mLOG = LOGGER_PLUS.groupLog("void sendResponseText(int,String)")) {
+            final var responseBytes = responseText.getBytes();
+            try {
+                exchange.sendResponseHeaders(responseCode, responseBytes.length);
+                try (var os = exchange.getResponseBody()) {
+                    os.write(responseBytes);
+                }
+            } catch (IOException ioe) {
+                mLOG.error(LOGGER_PLUS.getStackTraceAsString(ioe));
+                throw new RuntimeException(ioe);
             }
-        } catch (IOException ioe) {
-            throw new RuntimeException(ioe);
         }
     }
 
@@ -70,24 +78,27 @@ public class SimpleHttpExchange {
     }
 
     public String getRequestPayload() {
-        String payload = null;
+        try(var mLOG = LOGGER_PLUS.groupLog("String getRequestPayload()")) {
+            String payload = null;
 
-        try (final var httpInput = new BufferedReader(new InputStreamReader(
-                exchange.getRequestBody()))) {
+            try (final var httpInput = new BufferedReader(new InputStreamReader(
+                    exchange.getRequestBody()))) {
 
-            final var in = new StringBuilder();
+                final var in = new StringBuilder();
 
-            String input;
-            while ((input = httpInput.readLine()) != null) {
-                in.append(input).append(" ");
+                String input;
+                while ((input = httpInput.readLine()) != null) {
+                    in.append(input).append(" ");
+                }
+
+                payload = in.toString().trim();
+            } catch (IOException ioe) {
+                mLOG.error(LOGGER_PLUS.getStackTraceAsString(ioe));
+                throw new RuntimeException(ioe);
             }
 
-            payload = in.toString().trim();
-        } catch (IOException ioe) {
-            throw new RuntimeException(ioe);
+            return payload;
         }
-
-        return payload;
     }
 
 }

@@ -1,17 +1,19 @@
 package xyz.ronella.template.http.config;
 
+import org.slf4j.LoggerFactory;
+import xyz.ronella.logging.LoggerPlus;
+import xyz.ronella.template.http.wrapper.SimpleHttpExchange;
 import xyz.ronella.trivial.handy.PathFinder;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-import java.util.Optional;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 final public class AppConfig {
 
+    private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(AppConfig.class));
     public final static AppConfig INSTANCE = new AppConfig();
 
     final private ResourceBundle prop;
@@ -23,9 +25,10 @@ final public class AppConfig {
             final var confFound = PathFinder.getBuilder(confName).addPaths(locations).build().getFile();
             final var propFile = confFound.get();
 
-            final InputStream versionProp = new FileInputStream(propFile);
+            final var versionProp = new FileInputStream(propFile);
             this.prop = new PropertyResourceBundle(versionProp);
         } catch (IOException exp) {
+            LOGGER_PLUS.error(LOGGER_PLUS.getStackTraceAsString(exp));
             throw new RuntimeException(exp);
         }
     }
