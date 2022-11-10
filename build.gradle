@@ -47,6 +47,7 @@ jlink {
         moduleName = application.mainModule
         mainClassName = application.mainClass
     }
+    forceMerge('slf4j-api', 'log4j-api', 'jackson-annotations')
     imageName = "${project.name}-${version}"
 }
 
@@ -54,7 +55,7 @@ test {
     useJUnitPlatform()
 }
 
-task preparePackage(dependsOn: ['jlink']) {
+task preparePackage(group: 'build') {
     doLast {
         def projectName = "${project.name}-${version}"
 
@@ -91,7 +92,9 @@ task preparePackage(dependsOn: ['jlink']) {
     }
 }
 
-task packWin(dependsOn: ['preparePackage']) {
+tasks.findByPath('jlink').finalizedBy(preparePackage)
+
+task packWin(group: 'distribution', dependsOn: ['jlink']) {
     doLast{
         def projectName = "${project.name}-${version}"
         def jlinkOutputDir = Paths.get(buildDir.absolutePath, projectName)

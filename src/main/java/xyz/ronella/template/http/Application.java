@@ -33,7 +33,7 @@ public class Application {
 
             server.start();
 
-            mLOG.info("The app started on port 8080%nPress any key to stop...%n");
+            mLOG.info("\nThe app started on port 8080\nPress any key to stop...\n");
             System.in.read();
             server.stop(0);
         }
