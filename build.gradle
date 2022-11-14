@@ -46,6 +46,7 @@ jlink {
     launcher{
         moduleName = application.mainModule
         mainClassName = application.mainClass
+        jvmArgs = ['-Dlog4j.configurationFile={{BIN_DIR}}\\conf\\log4j2.xml']
     }
     forceMerge('slf4j-api', 'log4j-api', 'jackson-annotations')
     imageName = "${project.name}-${version}"
@@ -69,6 +70,8 @@ task preparePackage(group: 'build') {
         def jlinkBinDir = Paths.get(jlinkTargetDir.toFile().absolutePath, "bin")
         def jlinkConfDir = Paths.get(jlinkBinDir.toFile().absolutePath, "..", confDirectory)
 
+        def mainResources = sourceSets.main.resources.sourceDirectories.asPath
+
         copy {
             from(Paths.get(buildDir.absolutePath, projectName, "bin"))
             into(Paths.get(buildDir.absolutePath, projectName))
@@ -77,6 +80,11 @@ task preparePackage(group: 'build') {
 
         copy {
             from(confPath)
+            into(jlinkConfDir)
+        }
+
+        copy {
+            from(mainResources)
             into(jlinkConfDir)
         }
 

@@ -4,7 +4,6 @@ import com.sun.net.httpserver.HttpExchange;
 
 import org.slf4j.LoggerFactory;
 import xyz.ronella.logging.LoggerPlus;
-import xyz.ronella.template.http.Application;
 import xyz.ronella.template.http.commons.ContentType;
 import xyz.ronella.template.http.commons.Method;
 import xyz.ronella.template.http.commons.ResponseStatus;
@@ -50,12 +49,19 @@ public class SimpleHttpExchange {
 
     public void sendResponseText(final int responseCode, final String responseText) {
         try(var mLOG = LOGGER_PLUS.groupLog("void sendResponseText(int,String)")) {
-            final var responseBytes = responseText.getBytes();
+            mLOG.debug(() -> String.format("Response Code: %s; Response Text: %s", responseCode, responseText));
             try {
-                exchange.sendResponseHeaders(responseCode, responseBytes.length);
-                try (var os = exchange.getResponseBody()) {
-                    os.write(responseBytes);
+                final var responseBytes = responseText.getBytes();
+                final var contentLength = responseBytes.length;
+
+                exchange.sendResponseHeaders(responseCode, contentLength);
+
+                if (ResponseStatus.NO_CONTENT.getCode() != responseCode) {
+                    try (final var os = exchange.getResponseBody()) {
+                        os.write(responseBytes);
+                    }
                 }
+
             } catch (IOException ioe) {
                 mLOG.error(LOGGER_PLUS.getStackTraceAsString(ioe));
                 throw new RuntimeException(ioe);
@@ -91,6 +97,7 @@ public class SimpleHttpExchange {
                     in.append(input).append(" ");
                 }
 
+                mLOG.debug(() -> "Request Payload: " + in.toString().trim());
                 payload = in.toString().trim();
             } catch (IOException ioe) {
                 mLOG.error(LOGGER_PLUS.getStackTraceAsString(ioe));
