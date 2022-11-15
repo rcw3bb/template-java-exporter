@@ -2,7 +2,6 @@ package xyz.ronella.template.http.config;
 
 import org.slf4j.LoggerFactory;
 import xyz.ronella.logging.LoggerPlus;
-import xyz.ronella.template.http.wrapper.SimpleHttpExchange;
 import xyz.ronella.trivial.handy.PathFinder;
 
 import java.io.FileInputStream;

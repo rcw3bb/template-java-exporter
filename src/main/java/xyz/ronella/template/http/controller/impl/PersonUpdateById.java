@@ -34,7 +34,7 @@ public class PersonUpdateById extends AbstractPersonResource {
                 final var response = personToJson(updatedPerson);
 
                 simpleExchange.sendJsonResponse(response);
-            }, ()-> simpleExchange.sendResponseText(ResponseStatus.NO_CONTENT.getCode()));
+            }, ()-> simpleExchange.sendResponseText(ResponseStatus.NOT_FOUND.getCode()));
     }
 
 }

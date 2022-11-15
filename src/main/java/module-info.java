@@ -1,5 +1,6 @@
 open module xyz.ronella.template.http {
     requires static lombok;
+    requires static java.net.http;
 
     requires com.fasterxml.jackson.databind;
     requires jdk.httpserver;

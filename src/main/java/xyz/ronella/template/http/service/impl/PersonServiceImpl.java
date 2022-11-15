@@ -4,10 +4,11 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import xyz.ronella.template.http.model.Person;
 import xyz.ronella.template.http.repository.IPersonRepository;
+import xyz.ronella.template.http.service.IPersonService;
 
 import java.util.List;
 
-public class PersonServiceImpl implements xyz.ronella.template.http.service.IPersonService {
+public class PersonServiceImpl implements IPersonService {
 
     private final IPersonRepository repository;
 
