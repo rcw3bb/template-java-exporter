@@ -4,6 +4,7 @@ plugins {
     id 'application'
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.beryx.jlink' version '2.25.0'
+    id 'jacoco'
 }
 
 group 'xyz.ronella.template'
@@ -14,21 +15,21 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
     implementation 'com.google.inject:guice:5.1.0'
     implementation 'xyz.ronella.casual:trivial-chunk:2.14.0'
     implementation 'xyz.ronella.logging:logger-plus:1.1.1'
 
-    implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
-    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
-    implementation 'org.apache.logging.log4j:log4j-slf4j18-impl:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+    implementation 'org.apache.logging.log4j:log4j-slf4j18-impl:2.18.0'
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
 
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
 
@@ -97,7 +98,7 @@ task preparePackage(group: 'build') {
             def replaceWith = "set DIR=\"%~dp0\\bin\""
             def content = batchPath.text
             def updatedContent = content.replace(pattern, replaceWith)
-            if (!content.equals(updatedContent)) {
+            if (content != updatedContent) {
                 batchPath.write(updatedContent)
             }
         }
@@ -120,4 +121,14 @@ task packWin(group: 'distribution', dependsOn: ['jlink']) {
 
 run {
     standardInput = System.in
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
 }

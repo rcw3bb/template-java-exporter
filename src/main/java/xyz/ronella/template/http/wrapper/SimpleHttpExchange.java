@@ -85,7 +85,7 @@ public class SimpleHttpExchange {
 
     public String getRequestPayload() {
         try(var mLOG = LOGGER_PLUS.groupLog("String getRequestPayload()")) {
-            String payload = null;
+            String payload;
 
             try (final var httpInput = new BufferedReader(new InputStreamReader(
                     exchange.getRequestBody()))) {
