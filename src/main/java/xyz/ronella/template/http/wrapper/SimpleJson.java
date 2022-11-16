@@ -27,15 +27,14 @@ public class SimpleJson<T> {
      * @return The json text.
      */
     public String toJsonText(final T object) {
-        String output = null;
         if (null != object) {
             try {
-                output = objectMapper.writeValueAsString(object);
+                return objectMapper.writeValueAsString(object);
             } catch (JsonProcessingException jpe) {
                 throw new RuntimeException(jpe);
             }
         }
-        return output;
+        return null;
     }
 
     /**

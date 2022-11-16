@@ -42,10 +42,10 @@ public class PersonDeleteById extends AbstractPersonResource {
     public void process(final SimpleHttpExchange simpleExchange) {
         final var matchId = getPathMatcher(simpleExchange).group(1);
         final var id = Long.valueOf(matchId);
-        final var person = Optional.ofNullable(personService.findById(id));
+        final var person = Optional.ofNullable(getService().findById(id));
 
         person.ifPresentOrElse(___person -> {
-            personService.delete(___person.getId());
+            getService().delete(___person.getId());
             simpleExchange.sendResponseCode(ResponseStatus.OK);
         }, () -> simpleExchange.sendResponseCode(ResponseStatus.NOT_FOUND));
     }

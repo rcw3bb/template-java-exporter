@@ -34,8 +34,9 @@ final public class AppConfig {
             final var confFound = PathFinder.getBuilder(confName).addPaths(locations).build().getFile();
             final var propFile = confFound.get();
 
-            final var versionProp = new FileInputStream(propFile);
-            this.prop = new PropertyResourceBundle(versionProp);
+            try(final var versionProp = new FileInputStream(propFile)) {
+                this.prop = new PropertyResourceBundle(versionProp);
+            }
         } catch (IOException exp) {
             LOGGER_PLUS.error(LOGGER_PLUS.getStackTraceAsString(exp));
             throw new RuntimeException(exp);

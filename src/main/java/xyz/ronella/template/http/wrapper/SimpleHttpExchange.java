@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * The only class that has the access to HttpExchange.
@@ -132,26 +133,19 @@ public class SimpleHttpExchange {
      */
     public String getRequestPayload() {
         try(var mLOG = LOGGER_PLUS.groupLog("String getRequestPayload()")) {
-            String payload;
-
             try (final var httpInput = new BufferedReader(new InputStreamReader(
                     exchange.getRequestBody()))) {
 
-                final var in = new StringBuilder();
+                var payload = httpInput.lines().collect(Collectors.joining());
 
-                String input;
-                while ((input = httpInput.readLine()) != null) {
-                    in.append(input).append(" ");
-                }
+                mLOG.debug(() -> "Request Payload: " + payload);
 
-                mLOG.debug(() -> "Request Payload: " + in.toString().trim());
-                payload = in.toString().trim();
+                return payload;
+
             } catch (IOException ioe) {
                 mLOG.error(LOGGER_PLUS.getStackTraceAsString(ioe));
                 throw new RuntimeException(ioe);
             }
-
-            return payload;
         }
     }
 

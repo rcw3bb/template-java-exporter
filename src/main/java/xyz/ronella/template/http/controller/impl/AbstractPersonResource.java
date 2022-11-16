@@ -24,8 +24,12 @@ public abstract class AbstractPersonResource implements IResource {
     /**
      * An instance of IPersonService.
      */
-    protected IPersonService personService;
+    private IPersonService personService;
     private Matcher pathMatcher;
+
+    public IPersonService getService() {
+        return personService;
+    }
 
     /**
      * The base url configured in application.properties.

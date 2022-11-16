@@ -45,10 +45,10 @@ public class PersonUpdateById extends AbstractPersonResource {
             final var payload = simpleExchange.getRequestPayload();
             final var person = jsonToPerson(payload);
 
-            final var personFound = Optional.ofNullable(personService.findById(person.getId()));
+            final var personFound = Optional.ofNullable(getService().findById(person.getId()));
 
             personFound.ifPresentOrElse(___person -> {
-                final var updatedPerson = personService.update(person);
+                final var updatedPerson = getService().update(person);
                 final var response = personToJson(updatedPerson);
 
                 simpleExchange.sendJsonResponse(response);

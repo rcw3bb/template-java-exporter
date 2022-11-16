@@ -36,7 +36,7 @@ public class PersonRetrieveAll extends AbstractPersonResource {
      */
     @Override
     public void process(final SimpleHttpExchange simpleExchange) {
-        final var persons = personService.findAll();
+        final var persons = getService().findAll();
         final var response = personListToJson(persons);
 
         simpleExchange.sendJsonResponse(response);

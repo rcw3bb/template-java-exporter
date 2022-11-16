@@ -41,7 +41,7 @@ public class PersonCreate extends AbstractPersonResource {
     public void process(final SimpleHttpExchange simpleExchange) {
         final var payload = simpleExchange.getRequestPayload();
         final var person = jsonToPerson(payload);
-        final var createdPerson = personService.create(person);
+        final var createdPerson = getService().create(person);
         final var response = personToJson(createdPerson);
 
         simpleExchange.sendJsonResponse(response);

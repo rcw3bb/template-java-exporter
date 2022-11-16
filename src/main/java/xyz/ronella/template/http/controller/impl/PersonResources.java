@@ -50,14 +50,14 @@ public class PersonResources implements IResources {
 
     /**
      * Creates a particular implementation IResource.
-     * @param simpleHttpExchange An instance of SimpleHttpExchange.
+     * @param exchange An instance of SimpleHttpExchange.
      * @return An implementation of IResource.
      */
-    public static Optional<IResource> createResource(SimpleHttpExchange simpleHttpExchange) {
+    public static Optional<IResource> createResource(SimpleHttpExchange exchange) {
         try(var mLOG = LOGGER_PLUS.groupLog("Optional<IResource> getInstance(SimpleHttpExchange)")) {
             final var personResource = PersonModule.getInstance(IResources.class);
             final var resources = personResource.getResources();
-            final var resource = resources.stream().filter(___resource -> ___resource.canProcess(simpleHttpExchange)).findFirst();
+            final var resource = resources.stream().filter(___resource -> ___resource.canProcess(exchange)).findFirst();
             mLOG.debug(()-> "Resource instance: " + resource.get());
             return resource;
         }
