@@ -14,45 +14,76 @@ import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.Optional;
 
+/**
+ * The only class that has the access to HttpExchange.
+ * @author Ron Webb
+ * @since 1.0.0
+ */
 public class SimpleHttpExchange {
 
     private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(SimpleHttpExchange.class));
+    private final HttpExchange exchange;
 
-    protected final HttpExchange exchange;
+    /**
+     * Creates an instance of SimpleHttpExchange.
+     * @param exchange An instance of HttpExchange.
+     */
     public SimpleHttpExchange(final HttpExchange exchange) {
         this.exchange = exchange;
     }
 
-    public HttpExchange getHttpExchange() {
-        return exchange;
-    }
-
+    /**
+     * The request uri.
+     * @return An instance of URI.
+     */
     protected URI getRequestURI() {
         return exchange.getRequestURI();
     }
 
+    /**
+     * The request path.
+     * @return The request path.
+     */
     public String getRequestPath() {
         return getRequestURI().getPath();
     }
 
+    /**
+     * The method of the request.
+     * @return The request method.
+     */
     public Optional<Method> getRequestMethod() {
         return Method.of(exchange.getRequestMethod());
     }
 
+    /**
+     * The query of the request.
+     * @return The request query.
+     */
     public String getRequestQuery() {
         return getRequestURI().getQuery();
     }
 
+    /**
+     * The content type of the request.
+     * @return The content type.
+     */
     public Optional<ContentType> getRequestContentType() {
         return ContentType.of(exchange.getRequestHeaders().getFirst("Content-type"));
     }
 
-    public void sendResponseText(final int responseCode, final String responseText) {
+    /**
+     * Sends a text response.
+     * @param responseStatus The response status.
+     * @param responseText The response text.
+     */
+    public void sendResponseText(final ResponseStatus responseStatus, final String responseText) {
         try(var mLOG = LOGGER_PLUS.groupLog("void sendResponseText(int,String)")) {
-            mLOG.debug(() -> String.format("Response Code: %s; Response Text: %s", responseCode, responseText));
+            mLOG.debug(() -> String.format("Response Code: %s; Response Text: %s", responseStatus, responseText));
             try {
                 final var responseBytes = responseText.getBytes();
                 final var contentLength = responseBytes.length;
+                final var responseCode = responseStatus.getCode();
 
                 exchange.sendResponseHeaders(responseCode, contentLength);
 
@@ -69,20 +100,36 @@ public class SimpleHttpExchange {
         }
     }
 
-    public void sendResponseText(final int responseCode) {
-        sendResponseText(responseCode, "");
+    /**
+     * Sends a response code only.
+     * @param responseStatus The response status.
+     */
+    public void sendResponseCode(final ResponseStatus responseStatus) {
+        sendResponseText(responseStatus, "");
     }
 
+    /**
+     * Sends a json response. The response content type will be application/json.
+     * @param jsonResponse The json response text.
+     */
     public void sendJsonResponse(String jsonResponse) {
         setResponseContentType(ContentType.APPLICATION_JSON);
-        sendResponseText(ResponseStatus.OK.getCode(), jsonResponse);
+        sendResponseText(ResponseStatus.OK, jsonResponse);
     }
 
+    /**
+     * Sets a response content type header.
+     * @param contentType The content type.
+     */
     public void setResponseContentType(final ContentType contentType) {
         final var headers = exchange.getResponseHeaders();
         headers.add("Content-type", contentType.toString());
     }
 
+    /**
+     * The payload of the request.
+     * @return The payload.
+     */
     public String getRequestPayload() {
         try(var mLOG = LOGGER_PLUS.groupLog("String getRequestPayload()")) {
             String payload;

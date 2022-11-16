@@ -10,13 +10,19 @@ import com.google.inject.name.Names;
 
 import xyz.ronella.template.http.controller.IResource;
 import xyz.ronella.template.http.controller.IResources;
-import xyz.ronella.template.http.controller.PersonResources;
+import xyz.ronella.template.http.controller.impl.PersonResources;
 import xyz.ronella.template.http.controller.impl.*;
 import xyz.ronella.template.http.repository.IPersonRepository;
 import xyz.ronella.template.http.repository.impl.PersonListRepository;
 import xyz.ronella.template.http.service.IPersonService;
 import xyz.ronella.template.http.service.impl.PersonServiceImpl;
 
+/**
+ * The configuration to wiring all Person related resources.
+ *
+ * @author Ron Webb
+ * @since 1.0.0
+ */
 final public class PersonModule extends AbstractModule {
 
     @Override
@@ -43,6 +49,12 @@ final public class PersonModule extends AbstractModule {
         return Guice.createInjector(new PersonModule());
     }
 
+    /**
+     * Returns an instance of the target interface that is fully wired.
+     * @param clazz The target class.
+     * @return An instance of the wired class.
+     * @param <T> The target actual time.
+     */
     public static <T> T getInstance(final Class<T> clazz) {
         return getInjector().getInstance(Key.get(clazz, Names.named(PersonResources.RESOURCE_NAME)));
     }

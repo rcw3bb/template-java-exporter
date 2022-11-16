@@ -1,3 +1,9 @@
+/**
+ * The module definition.
+ *
+ * @author Ron Webb
+ * @since 1.0.0
+ */
 open module xyz.ronella.template.http {
     requires static lombok;
     requires static java.net.http;

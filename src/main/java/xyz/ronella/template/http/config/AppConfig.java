@@ -10,9 +10,19 @@ import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+/**
+ * Reads the application.properties file inside.
+ *
+ * @author Ron Webb
+ * @since 1.0.0
+ */
 final public class AppConfig {
 
     private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(AppConfig.class));
+
+    /**
+     * Returns an instance of AppConfig.
+     */
     public final static AppConfig INSTANCE = new AppConfig();
 
     final private ResourceBundle prop;
@@ -32,11 +42,19 @@ final public class AppConfig {
         }
     }
 
+    /**
+     * Reads the value of the server.port.
+     * @return The value of the server.port as integer.
+     */
     public int getServerPort() {
         final var port = prop.getString("server.port");
         return Integer.parseInt(port);
     }
 
+    /**
+     * Reads the value of the base.url.
+     * @return The value of the base.url.
+     */
     public String getBaseURL() {
         return prop.getString("base.url").trim();
     }

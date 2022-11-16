@@ -6,11 +6,22 @@ import xyz.ronella.template.http.wrapper.SimpleHttpServer;
 
 import java.io.IOException;
 
+/**
+ * The entry point of this application.
+ *
+ * @author Ron Webb
+ * @since 1.0.0
+ */
 public class Application {
 
     private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(Application.class));
 
-    public static void main(String[] args) throws IOException {
+    /**
+     * The application entry point.
+     * @param args The command line arguments.
+     * @throws IOException The exception to handle.
+     */
+    public static void main(String ... args) throws IOException {
         try(var mLOG = LOGGER_PLUS.groupLog("void main(String[])")) {
             var server = SimpleHttpServer.createServer();
 
