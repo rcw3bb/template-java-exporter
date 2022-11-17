@@ -54,6 +54,14 @@ jlink {
         mainClassName = application.mainClass
         jvmArgs = ['-Dlog4j.configurationFile={{BIN_DIR}}\\conf\\log4j2.xml']
     }
+    mergedModule {
+        additive = true
+        uses 'org.apache.logging.log4j.spi.Provider'
+        uses 'org.apache.logging.log4j.message.ThreadDumpMessage.ThreadInfoFactory'
+        uses 'org.apache.logging.log4j.core.util.ContextDataProvider'
+        uses 'org.apache.logging.log4j.util.PropertySource'
+        uses 'org.apache.logging.log4j.core.util.WatchEventService'
+    }
     forceMerge('slf4j-api', 'log4j-api', 'jackson-annotations')
     imageName = "${project.name}-${version}"
 }
