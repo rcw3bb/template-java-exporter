@@ -36,6 +36,16 @@ From the preceding directory you can test the build by running the following bat
 java-api-server.bat
 ```
 
+Once started you can try to open the following address in your browser:
+
+http://localhost:8080/person
+
+Expect the following response:
+
+```json
+[{"id":1,"firstName":"Ronaldo","lastName":"Webb"},{"id":2,"firstName":"Juan","lastName":"Dela Cruz"}]
+```
+
 ## Packaging
 
 Run the following command to package the application:
