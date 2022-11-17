@@ -4,7 +4,7 @@
  * @author Ron Webb
  * @since 1.0.0
  */
-open module xyz.ronella.template.http {
+open module xyz.ronella.template.api {
     requires static lombok;
     requires static java.net.http;
 

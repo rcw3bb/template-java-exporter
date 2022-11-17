@@ -39,7 +39,7 @@ dependencies {
 
 application {
     mainModule = moduleName
-    mainClass = 'xyz.ronella.template.http.Application'
+    mainClass = 'xyz.ronella.template.api.Application'
 }
 
 java {

@@ -1,11 +1,11 @@
 package xyz.ronella.template.wrapper;
 
 import org.junit.jupiter.api.*;
-import xyz.ronella.template.http.commons.ContentType;
-import xyz.ronella.template.http.commons.ResponseStatus;
-import xyz.ronella.template.http.model.Person;
-import xyz.ronella.template.http.wrapper.SimpleHttpServer;
-import xyz.ronella.template.http.wrapper.SimpleJson;
+import xyz.ronella.template.api.commons.ContentType;
+import xyz.ronella.template.api.commons.ResponseStatus;
+import xyz.ronella.template.api.model.Person;
+import xyz.ronella.template.api.wrapper.SimpleHttpServer;
+import xyz.ronella.template.api.wrapper.SimpleJson;
 
 import java.io.IOException;
 import java.net.URI;
