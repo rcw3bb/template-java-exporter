@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: A sample metrics resources.
+  description: A sample metrics resources.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:9000
+tags:
+  - name: metrics
+    description: Everything related to metrics resource
+paths:
+  /metrics:
+    get:
+      tags:
+        - metrics
+      summary: Get the metrics.
+      description: Get the metrics with random integer value.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              example: "#Coming from a java-exporter default template.\njava_template_random_int 88"
