@@ -1,6 +1,6 @@
-package xyz.ronella.template.api.controller;
+package xyz.ronella.template.exporter.controller;
 
-import xyz.ronella.template.api.wrapper.SimpleHttpExchange;
+import xyz.ronella.template.exporter.wrapper.SimpleHttpExchange;
 
 /**
  * Must be implemented to process a path resource.

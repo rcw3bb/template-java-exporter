@@ -1,4 +1,4 @@
-package xyz.ronella.template.api.commons;
+package xyz.ronella.template.exporter.commons;
 
 public enum ResponseStatus {
     CONTINUE(100),

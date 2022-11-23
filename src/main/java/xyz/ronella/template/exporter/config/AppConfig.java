@@ -1,12 +1,14 @@
-package xyz.ronella.template.api.config;
+package xyz.ronella.template.exporter.config;
 
 import org.slf4j.LoggerFactory;
 import xyz.ronella.logging.LoggerPlus;
 import xyz.ronella.trivial.handy.PathFinder;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
@@ -30,7 +32,7 @@ final public class AppConfig {
     private AppConfig() {
         try {
             final var confName = "application.properties";
-            final var locations = List.of("../conf", "conf");
+            final var locations = getConfDirs();
             final var confFound = PathFinder.getBuilder(confName).addPaths(locations).build().getFile();
             final var propFile = confFound.get();
 
@@ -41,6 +43,25 @@ final public class AppConfig {
             LOGGER_PLUS.error(LOGGER_PLUS.getStackTraceAsString(exp));
             throw new RuntimeException(exp);
         }
+    }
+
+    /**
+     * The configuration directories.
+     * @return A list of directories.
+     */
+    public List<String> getConfDirs() {
+        return List.of("../conf", "conf");
+    }
+
+    /**
+     * The directory under the configuration directories to search.
+     * @param directory The directory within the configuration that must start with a slash.
+     * @return A list of directories.
+     */
+    public Optional<File> getConfDir(final String directory) {
+        return getConfDirs().stream().map(___dir -> new File(___dir.concat(directory)))
+                .filter(File::exists)
+                .findFirst();
     }
 
     /**

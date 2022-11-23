@@ -1,11 +1,7 @@
 package xyz.ronella.template.wrapper;
 
 import org.junit.jupiter.api.*;
-import xyz.ronella.template.api.commons.ContentType;
-import xyz.ronella.template.api.commons.ResponseStatus;
-import xyz.ronella.template.api.model.Person;
-import xyz.ronella.template.api.wrapper.SimpleHttpServer;
-import xyz.ronella.template.api.wrapper.SimpleJson;
+import xyz.ronella.template.exporter.wrapper.SimpleHttpServer;
 
 import java.io.IOException;
 import java.net.URI;
@@ -35,102 +31,16 @@ class SimpleHttpServerTest {
 
     @Test
     @Order(10)
-    public void retrieveAllPersons() throws IOException, InterruptedException {
+    public void retrieveMetrics() throws IOException, InterruptedException {
         final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person"))
+        final var request = HttpRequest.newBuilder(URI.create("http://localhost:9000/metrics"))
                 .GET()
                 .build();
         final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        assertEquals("[{\"id\":1,\"firstName\":\"Ronaldo\",\"lastName\":\"Webb\"},{\"id\":2,\"firstName\":\"Juan\",\"lastName\":\"Dela Cruz\"}]", response.body());
+        final var expected = """
+                #Coming from a java-exporter default template.\r
+                java_template_random_int \\d+""";
+        assertTrue(response.body().matches(expected));
     }
 
-    @Test
-    @Order(20)
-    public void retrieveAPerson() throws IOException, InterruptedException {
-        final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person/1"))
-                .GET()
-                .build();
-        final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        assertEquals("{\"id\":1,\"firstName\":\"Ronaldo\",\"lastName\":\"Webb\"}", response.body());
-    }
-
-    @Test
-    @Order(30)
-    public void createAPerson() throws IOException, InterruptedException {
-        final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person"))
-                .header("Content-Type", ContentType.APPLICATION_JSON.toString())
-                .POST(HttpRequest.BodyPublishers.ofString("""
-                    {
-                        "firstName": "Test2",
-                        "lastName": "Only"
-                    }
-                    """))
-                .build();
-        final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        final var json = response.body();
-        final var person = new SimpleJson<Person>().toObjectType(json, Person.class);
-        assertEquals(3, person.getId());
-    }
-
-    @Test
-    @Order(40)
-    public void updateAPerson() throws IOException, InterruptedException {
-        final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person"))
-                .header("Content-Type", ContentType.APPLICATION_JSON.toString())
-                .PUT(HttpRequest.BodyPublishers.ofString("""
-                    {
-                        "id": 3,
-                        "firstName": "Test3",
-                        "lastName": "Only"
-                    }
-                    """))
-                .build();
-        final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        final var json = response.body();
-        final var person = new SimpleJson<Person>().toObjectType(json, Person.class);
-        assertEquals("Test3", person.getFirstName());
-    }
-
-    @Test
-    @Order(50)
-    public void deleteAPerson() throws IOException, InterruptedException {
-        final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person/3"))
-                .DELETE()
-                .build();
-        final var response = client.send(request, HttpResponse.BodyHandlers.discarding());
-        assertEquals(ResponseStatus.OK.getCode(), response.statusCode());
-    }
-
-    @Test
-    @Order(60)
-    public void updateAPersonNonExisting() throws IOException, InterruptedException {
-        final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person"))
-                .header("Content-Type", ContentType.APPLICATION_JSON.toString())
-                .PUT(HttpRequest.BodyPublishers.ofString("""
-                    {
-                        "id": 3,
-                        "firstName": "Test3",
-                        "lastName": "Only"
-                    }
-                    """))
-                .build();
-        final var response = client.send(request, HttpResponse.BodyHandlers.discarding());
-        assertEquals(ResponseStatus.NOT_FOUND.getCode(), response.statusCode());
-    }
-
-    @Test
-    @Order(70)
-    public void deleteAPersonNonExisting() throws IOException, InterruptedException {
-        final var client = HttpClient.newHttpClient();
-        final var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/person/3"))
-                .DELETE()
-                .build();
-        final var response = client.send(request, HttpResponse.BodyHandlers.discarding());
-        assertEquals(ResponseStatus.NOT_FOUND.getCode(), response.statusCode());
-    }
 }

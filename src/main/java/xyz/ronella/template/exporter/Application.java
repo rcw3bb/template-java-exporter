@@ -1,8 +1,9 @@
-package xyz.ronella.template.api;
+package xyz.ronella.template.exporter;
 
 import org.slf4j.LoggerFactory;
 import xyz.ronella.logging.LoggerPlus;
-import xyz.ronella.template.api.wrapper.SimpleHttpServer;
+import xyz.ronella.template.exporter.config.AppConfig;
+import xyz.ronella.template.exporter.wrapper.SimpleHttpServer;
 
 import java.io.IOException;
 
@@ -23,11 +24,12 @@ public class Application {
      */
     public static void main(String ... args) throws IOException {
         try(var mLOG = LOGGER_PLUS.groupLog("void main(String[])")) {
-            var server = SimpleHttpServer.createServer();
+            final var server = SimpleHttpServer.createServer();
+            final var port = AppConfig.INSTANCE.getServerPort();
 
             server.start();
 
-            mLOG.info("\nThe app started on port 8080\nPress any key to stop...\n");
+            mLOG.info("\nThe app started on port " + port + "\nPress any key to stop...\n");
             System.in.read();
 
             server.stop();

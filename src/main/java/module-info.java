@@ -4,7 +4,7 @@
  * @author Ron Webb
  * @since 1.0.0
  */
-open module xyz.ronella.template.api {
+open module xyz.ronella.template.exporter {
     requires static lombok;
     requires static java.net.http;
 
@@ -13,6 +13,8 @@ open module xyz.ronella.template.api {
 
     requires xyz.ronella.casual.trivial;
     requires xyz.ronella.logging.logger.plus;
+
+    requires freemarker;
 
     requires com.google.guice;
     requires org.slf4j;

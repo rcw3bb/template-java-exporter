@@ -1,0 +1,2 @@
+#Coming from a java-exporter default template.
+java_template_random_int ${random}

@@ -18,6 +18,7 @@ repositories {
 dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
     implementation 'com.google.inject:guice:5.1.0'
+    implementation 'org.freemarker:freemarker:2.3.31'
     implementation 'xyz.ronella.casual:trivial-chunk:2.14.0'
     implementation 'xyz.ronella.logging:logger-plus:1.1.1'
 
@@ -39,7 +40,7 @@ dependencies {
 
 application {
     mainModule = moduleName
-    mainClass = 'xyz.ronella.template.api.Application'
+    mainClass = 'xyz.ronella.template.exporter.Application'
 }
 
 java {

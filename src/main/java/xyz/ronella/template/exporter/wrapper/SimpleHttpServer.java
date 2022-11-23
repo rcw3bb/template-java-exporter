@@ -1,10 +1,10 @@
-package xyz.ronella.template.api.wrapper;
+package xyz.ronella.template.exporter.wrapper;
 
 import com.sun.net.httpserver.HttpServer;
 
-import xyz.ronella.template.api.commons.ResponseStatus;
-import xyz.ronella.template.api.config.AppConfig;
-import xyz.ronella.template.api.controller.impl.PersonResources;
+import xyz.ronella.template.exporter.commons.ResponseStatus;
+import xyz.ronella.template.exporter.config.AppConfig;
+import xyz.ronella.template.exporter.controller.impl.MetricsResources;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -29,7 +29,7 @@ final public class SimpleHttpServer {
 
         context.setHandler(___exchange -> {
             final var simpleExchange = new SimpleHttpExchange(___exchange);
-            final var resource = PersonResources.createResource(simpleExchange);
+            final var resource = MetricsResources.createResource(simpleExchange);
 
             resource.ifPresentOrElse(___resource -> resource.get().process(simpleExchange),
                     () -> simpleExchange.sendResponseCode(ResponseStatus.NO_CONTENT));

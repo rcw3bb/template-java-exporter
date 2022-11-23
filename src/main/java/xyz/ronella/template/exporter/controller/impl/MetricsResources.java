@@ -1,14 +1,13 @@
-package xyz.ronella.template.api.controller.impl;
+package xyz.ronella.template.exporter.controller.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-
 import org.slf4j.LoggerFactory;
 import xyz.ronella.logging.LoggerPlus;
-import xyz.ronella.template.api.config.PersonModule;
-import xyz.ronella.template.api.controller.IResource;
-import xyz.ronella.template.api.controller.IResources;
-import xyz.ronella.template.api.wrapper.SimpleHttpExchange;
+import xyz.ronella.template.exporter.config.MetricsModule;
+import xyz.ronella.template.exporter.controller.IResource;
+import xyz.ronella.template.exporter.controller.IResources;
+import xyz.ronella.template.exporter.wrapper.SimpleHttpExchange;
 
 import java.util.Optional;
 import java.util.Set;
@@ -19,23 +18,22 @@ import java.util.Set;
  * @author Ron Webb
  * @since 1.0.0
  */
-public class PersonResources implements IResources {
-
-    private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(PersonResources.class));
+public class MetricsResources implements IResources {
+    private static final LoggerPlus LOGGER_PLUS = new LoggerPlus(LoggerFactory.getLogger(MetricsResources.class));
 
     /**
-     * The resource name for Person.
+     * The resource name for Metrics.
      */
-    public static final String RESOURCE_NAME = "Person";
+    public static final String RESOURCE_NAME = "Metrics";
 
     final private Set<IResource> resources;
 
     /**
-     * Creates an instance of PersonResources.
+     * Creates an instance of MetricsResources.
      * @param resources An set of unique implementation of IResource.
      */
     @Inject
-    public PersonResources(@Named(RESOURCE_NAME) final Set<IResource> resources) {
+    public MetricsResources(@Named(RESOURCE_NAME) final Set<IResource> resources) {
         this.resources = resources;
     }
 
@@ -55,8 +53,8 @@ public class PersonResources implements IResources {
      */
     public static Optional<IResource> createResource(SimpleHttpExchange exchange) {
         try(var mLOG = LOGGER_PLUS.groupLog("Optional<IResource> getInstance(SimpleHttpExchange)")) {
-            final var personResource = PersonModule.getInstance(IResources.class);
-            final var resources = personResource.getResources();
+            final var metricsResource = MetricsModule.getInstance(IResources.class);
+            final var resources = metricsResource.getResources();
             final var resource = resources.stream().filter(___resource -> ___resource.canProcess(exchange)).findFirst();
             mLOG.debug(()-> "Resource instance: " + resource.get());
             return resource;

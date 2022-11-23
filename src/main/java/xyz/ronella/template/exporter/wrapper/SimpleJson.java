@@ -1,4 +1,4 @@
-package xyz.ronella.template.api.wrapper;
+package xyz.ronella.template.exporter.wrapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
