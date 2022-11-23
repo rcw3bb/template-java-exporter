@@ -13,7 +13,7 @@ import xyz.ronella.template.exporter.service.IMetricsService;
 import xyz.ronella.template.exporter.service.impl.MetricsServiceImpl;
 
 /**
- * The configuration to wiring all Person related resources.
+ * The configuration to wiring all Metrics related resources.
  * @author Ron Webb
  * @since 1.0.0
  */
