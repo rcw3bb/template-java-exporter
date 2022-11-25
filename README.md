@@ -153,7 +153,7 @@ Load the following swagger definition to https://editor.swagger.io/:
 
 Doing this will show the available metrics resource endpoints.
 
-## Testing the Endpoints
+## Testing the Endpoints by Browser
 
 ### Requesting the Metrics
 
@@ -173,6 +173,66 @@ Doing this will show the available metrics resource endpoints.
 | Status | 200                                                          |
 | Header | Content-Type: text/plain                                     |
 | Body   | #Coming from a java-exporter default template.<br/>java_template_random_int 88 |
+
+## Testing with Prometheus
+
+### Assumptions
+
+* **Prometheus server** in **localhost**.
+* **java_exporter** in **192.168.208.1**.
+
+### Updating the configuration
+
+In **Prometheus server**
+
+1. **Edit** the **prometheus.yml file** with a text editor.
+
+2. In the **scrape_configs section** add the following:
+
+   ```yaml
+     - job_name: "java-exporter"
+       scrape_interval: 5s
+       static_configs:
+         - targets: ["192.168.208.1:9000"]
+   ```
+
+3. **Save** the **file**.
+
+4. **Restart** the **prometheus service**.
+
+### Displaying the java-exporter Metrics
+
+1. **Open a browser** and **access the prometheus server** using the following address:
+
+   http://localhost:9090/
+
+2. **Click** the **Status ** from the toolbar and **select Targets**.
+
+   Expect one of the targets is **java-exporter** and it is **up**. 
+
+   > This is just to confirm that prometheus can reach the java-exporter.
+
+3. **Click** the **Graph** from the toolbar.
+
+4. **Type** the following in the **search bar**:
+
+   ```
+   java_template_random_int
+   ```
+
+5. **Click** the **Execute button**.
+
+   Expect to see the following:
+
+   ```
+   java_template_random_int{instance="192.168.208.1:9000", job="java-exporter"}
+   ```
+
+6. **Click** the **Graph tab**.
+
+   Expect to see the following metrics coming from java-exporter.
+
+   ![java-exporter-graph](images/java-exporter-graph.png)
 
 ## License
 
