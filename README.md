@@ -2,7 +2,7 @@
 
 A basic gradle project for a java metrics exporter development that can be used for prometheus.
 
-This is a fork form Java API Server template and refactored to become a metrics exporter. 
+This is a fork form [Java API Server template](https://github.com/rcw3bb/template-java-api-server) and refactored to become a metrics exporter. 
 
 Use your existing java knowledge in writing metrics exporter.
 

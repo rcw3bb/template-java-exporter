@@ -1,0 +1,9 @@
+* text=auto
+*.bat text eol=crlf
+*.md text eol=crlf
+*.java text eol=crlf
+*.properties text eol=crlf
+*.ftlt text eol=crlf
+*.sh text eol=lf
+
+.* export-ignore
