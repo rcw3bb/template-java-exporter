@@ -3,7 +3,7 @@
 *.md text eol=crlf
 *.java text eol=crlf
 *.properties text eol=crlf
-*.ftlt text eol=crlf
+*.ftlt text eol=lf
 *.sh text eol=lf
 
 .* export-ignore
