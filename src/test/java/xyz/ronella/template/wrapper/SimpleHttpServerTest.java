@@ -38,7 +38,7 @@ class SimpleHttpServerTest {
                 .build();
         final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
         final var expected = """
-                #Coming from a java-exporter default template.\r
+                #Coming from a java-exporter default template.
                 java_template_random_int \\d+""";
         assertTrue(response.body().matches(expected));
     }

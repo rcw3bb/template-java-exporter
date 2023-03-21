@@ -18,7 +18,7 @@ public class SimpleTemplateTest {
         try (final var writer = new StringWriter()) {
             SimpleTemplate.processTemplate("metrics.ftlt", metrics, writer);
             assertEquals("""
-                    #Coming from a java-exporter default template.\r
+                    #Coming from a java-exporter default template.
                     java_template_random_int 123""", writer.toString());
         }
     }
@@ -29,7 +29,7 @@ public class SimpleTemplateTest {
         metrics.setRandom(123);
         var output = SimpleTemplate.processTemplate("metrics.ftlt", metrics);
             assertEquals("""
-                    #Coming from a java-exporter default template.\r
+                    #Coming from a java-exporter default template.
                     java_template_random_int 123""", output);
     }
 }
