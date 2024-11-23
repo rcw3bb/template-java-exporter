@@ -6,23 +6,13 @@ This is a fork form [Java API Server template](https://github.com/rcw3bb/templat
 
 Use your existing java knowledge in writing metrics exporter.
 
-## Pre-requisite
-
-* Java 17
-
 ## Cloning
 
 1. **Create a fork** of this repository.
 
 2. **Clone the forked repository** to your machine.
 
-3. **Test your cloned repository** using the following command:
-
-   ```
-   gradlew test
-   ```
-
-   > If it completes successfully your setup is good.
+3. **Test your cloned repository** using the procedure from [build document](BUILD.md).
 
 ## Packages
 
@@ -64,10 +54,18 @@ The classes here **wraps all the third-party classes**. So that, the other appli
 
 The **Application class** is the bootstrap of the server. By default, the server is listening on port **9000**. You can change this by updating it in the **application.properties** file. If you are planning to run the server using IDE. This is the class to be ran.
 
-If you've packaged it and wants to run the server, execute the following batch file:
+If you've packaged it and wants to run the server, execute the following:
+
+**Packaged with Java**
 
 ```
 <APPLICATION_ROOT>\java-exporter.bat
+```
+
+**Packaged as Standalone Executable**
+
+```
+<APPLICATION_ROOT>\java-exporter.exe
 ```
 
 > The <APPLICATION_ROOT> is the location where you've extracted the package. *See the [build document](BUILD.md) on how to package the project.*
@@ -90,7 +88,7 @@ Expect to see the following output:
 java_template_random_int 88
 ```
 
-If you want to **stop the server**, just **press any key**.
+If you want to **stop the server**, just **press enter key**.
 
 ## The application.properties file
 
@@ -123,9 +121,9 @@ In the **actual package**, you can find this file in the following directory:
 
 > The <APPLICATION_ROOT> is the location where you've extracted the package. *See the [build document](BUILD.md) on how to package the project.*
 
-## The log4j2.xml file
+## The logback.xml file
 
-The **log4j2.xml file** holds the logging configuration and it is located in the following location:
+The **logback.xml file** holds the logging configuration and it is located in the following location:
 
 ```
 <PROJECT_DIR>\src\main\resources
