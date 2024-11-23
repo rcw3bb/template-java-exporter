@@ -28,6 +28,10 @@ plugins {
 group 'xyz.ronella.template'
 version VERSION
 
+configurations {
+    mockitoAgent
+}
+
 repositories {
     mavenCentral()
 }
@@ -49,6 +53,10 @@ dependencies {
 
     testCompileOnly libs.lombok
     testAnnotationProcessor libs.lombok
+
+    mockitoAgent(testLibs.mockito.core) {
+        transitive = false
+    }
 }
 
 ext {
@@ -99,6 +107,7 @@ processResources {
 }
 
 test {
+    jvmArgs("-javaagent:${configurations.mockitoAgent.asPath}")
     dependsOn(pmdMain)
     finalizedBy(jacocoTestReport)
     //finalizedBy('snyk-test')
