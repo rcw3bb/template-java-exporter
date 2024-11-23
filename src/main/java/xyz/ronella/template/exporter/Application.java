@@ -56,7 +56,7 @@ public class Application {
                 final var port = AppConfig.INSTANCE.getServerPort();
 
                 server.start();
-                mLOG.info("%nThe app started on port %s%nPress <ENTER> to stop...%n", port);
+                mLOG.info("%nThe app started on port %s%nPress <ENTER> to stop...", port);
                 System.in.read();
             }
         }
