@@ -1,8 +1,11 @@
 # Build
 
-## Pre-requisite
+## Prerequisites
 
-* Java 17
+* [BuildTools for Visual Studio](https://visualstudio.microsoft.com/downloads/)
+    * Install **Desktop development with C++**
+
+* [GraalVM for Java 21](https://www.graalvm.org/downloads/)
 
 ## Testing
 
@@ -14,53 +17,46 @@ gradlew clean check
 
 > The preceding command must be run from the location where you've cloned the repository.
 
-## Building
+## Packaging Standalone Executable
 
-Run the following command to build the application:
-
-```
-gradlew jlink
-```
-
-> The preceding command must be run from the location where you've cloned the repository.
-
-The output of this task will be in the following directory format:
+Run the following command to build the application executable:
 
 ```
-build\java-exporter-<VERSION>
+gradlew packImage
 ```
 
-From the preceding directory you can test the build by running the following batch file:
+> The package will be available in the following directory:
+>
+> ```
+> <REPO_DIR>\build\pack
+> ```
+>
+> REPO_DIR is the location where you've cloned the repository.
 
-```
-java-exporter.bat
-```
+## Packaging with Java
 
-Once started you can try to open the following address in your browser:
-
-http://localhost:9000/metrics
-
-Expect similar to the following response:
-
-```
-#Coming from a java-exporter default template.
-java_template_random_int 88
-```
-
-## Packaging
-
-Run the following command to package the application:
+Run the following command to build the application with Java runtime:
 
 ```
 gradlew packWin
 ```
 
-> The preceding command must be run from the location where you've cloned the repository.
+> The package will be available in following directory:
+>
+> ```
+> <REPO_DIR>\build\pack
+> ```
+>
+> REPO_DIR is the location where you've cloned the repository.
 
-The output of this task will be in the following directory:
+## Locking Dependencies
+
+Lock the dependencies to make the build reproducible using the following command:
 
 ```
-build\pack
+gradlew dependencies --write-locks
 ```
 
-The package will contain the a distributable zip file and doesn't require java to be installed on the target windows machine.
+The preceding command will create the lock files *(e.g. gradle.lockfile and settings-gradle.lockfile)* that must be part of the source control. If the lock files already exist, they will be overwritten.
+
+> There are no lock files in this repository since it is a template. Always start the development as much as possible with the latest stable versions.
