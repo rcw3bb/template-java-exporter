@@ -114,7 +114,7 @@ public class SimpleHttpExchange {
      * @param jsonResponse The json response text.
      */
     public void sendJsonResponse(String jsonResponse) {
-        setResponseContentType(ContentType.APPLICATION_JSON);
+        setResponseContentType(ContentType.APP_JSON);
         sendResponseText(ResponseStatus.OK, jsonResponse);
     }
 

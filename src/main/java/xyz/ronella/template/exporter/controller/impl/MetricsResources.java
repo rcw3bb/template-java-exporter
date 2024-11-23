@@ -1,10 +1,7 @@
 package xyz.ronella.template.exporter.controller.impl;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import org.slf4j.LoggerFactory;
 import xyz.ronella.logging.LoggerPlus;
-import xyz.ronella.template.exporter.config.MetricsModule;
 import xyz.ronella.template.exporter.controller.IResource;
 import xyz.ronella.template.exporter.controller.IResources;
 import xyz.ronella.template.exporter.wrapper.SimpleHttpExchange;
@@ -24,16 +21,13 @@ public class MetricsResources implements IResources {
     /**
      * The resource name for Metrics.
      */
-    public static final String RESOURCE_NAME = "Metrics";
-
     final private Set<IResource> resources;
 
     /**
      * Creates an instance of MetricsResources.
-     * @param resources An set of unique implementation of IResource.
+     * @param resources A set of unique implementation of IResource.
      */
-    @Inject
-    public MetricsResources(@Named(RESOURCE_NAME) final Set<IResource> resources) {
+    public MetricsResources(final Set<IResource> resources) {
         this.resources = resources;
     }
 
@@ -53,7 +47,9 @@ public class MetricsResources implements IResources {
      */
     public static Optional<IResource> createResource(SimpleHttpExchange exchange) {
         try(var mLOG = LOGGER_PLUS.groupLog("Optional<IResource> getInstance(SimpleHttpExchange)")) {
-            final var metricsResource = MetricsModule.getInstance(IResources.class);
+            final var metricsResource = new MetricsResources(Set.of(
+                    new MetricsRetrieval())
+            );
             final var resources = metricsResource.getResources();
             final var resource = resources.stream().filter(___resource -> ___resource.canProcess(exchange)).findFirst();
             mLOG.debug(()-> "Resource instance: " + resource.get());

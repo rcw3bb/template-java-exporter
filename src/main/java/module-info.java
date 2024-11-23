@@ -16,8 +16,8 @@ open module xyz.ronella.template.exporter {
 
     requires freemarker;
 
-    requires com.google.guice;
     requires org.slf4j;
-    requires org.apache.logging.log4j;
+    requires ch.qos.logback.classic;
+    requires java.naming;
 
 }

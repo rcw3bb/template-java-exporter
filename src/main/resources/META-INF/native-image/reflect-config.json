@@ -1,0 +1,336 @@
+[
+{
+  "name":"[Ljava.lang.Class;"
+},
+{
+  "name":"ch.qos.logback.classic.encoder.PatternLayoutEncoder",
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.joran.SerializedModelConfigurator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.pattern.DateConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.pattern.LevelConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.pattern.LineSeparatorConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.pattern.LoggerConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.pattern.MessageConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.pattern.ThreadConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.classic.util.DefaultJoranConfigurator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.core.ConsoleAppender",
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.core.FileAppender",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"ch.qos.logback.core.OutputStreamAppender",
+  "methods":[{"name":"setEncoder","parameterTypes":["ch.qos.logback.core.encoder.Encoder"] }]
+},
+{
+  "name":"ch.qos.logback.core.encoder.Encoder",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"ch.qos.logback.core.encoder.LayoutWrappingEncoder",
+  "methods":[{"name":"setParent","parameterTypes":["ch.qos.logback.core.spi.ContextAware"] }]
+},
+{
+  "name":"ch.qos.logback.core.pattern.PatternLayoutEncoderBase",
+  "methods":[{"name":"setPattern","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.RollingFileAppender",
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"setFile","parameterTypes":["java.lang.String"] }, {"name":"setRollingPolicy","parameterTypes":["ch.qos.logback.core.rolling.RollingPolicy"] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.RollingPolicy",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.RollingPolicyBase",
+  "methods":[{"name":"setFileNamePattern","parameterTypes":["java.lang.String"] }, {"name":"setParent","parameterTypes":["ch.qos.logback.core.FileAppender"] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy",
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"setMaxFileSize","parameterTypes":["ch.qos.logback.core.util.FileSize"] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.TimeBasedRollingPolicy",
+  "methods":[{"name":"setMaxHistory","parameterTypes":["int"] }, {"name":"setTotalSizeCap","parameterTypes":["ch.qos.logback.core.util.FileSize"] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.helper.DateTokenConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.core.rolling.helper.IntegerTokenConverter",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.core.spi.ContextAware",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"ch.qos.logback.core.status.NopStatusListener",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"ch.qos.logback.core.util.FileSize",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"freemarker.core._2_4_OrLaterMarker"
+},
+{
+  "name":"freemarker.core._Java16Impl",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"freemarker.core._Java9Impl",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"java.beans.PropertyVetoException"
+},
+{
+  "name":"java.io.FilePermission"
+},
+{
+  "name":"java.lang.Class",
+  "methods":[{"name":"arrayType","parameterTypes":[] }, {"name":"asSubclass","parameterTypes":["java.lang.Class"] }, {"name":"cast","parameterTypes":["java.lang.Object"] }, {"name":"componentType","parameterTypes":[] }, {"name":"describeConstable","parameterTypes":[] }, {"name":"descriptorString","parameterTypes":[] }, {"name":"desiredAssertionStatus","parameterTypes":[] }, {"name":"getAnnotatedInterfaces","parameterTypes":[] }, {"name":"getAnnotatedSuperclass","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotations","parameterTypes":[] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getCanonicalName","parameterTypes":[] }, {"name":"getClasses","parameterTypes":[] }, {"name":"getComponentType","parameterTypes":[] }, {"name":"getConstructor","parameterTypes":["java.lang.Class[]"] }, {"name":"getConstructors","parameterTypes":[] }, {"name":"getDeclaredAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaredAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredClasses","parameterTypes":[] }, {"name":"getDeclaredConstructor","parameterTypes":["java.lang.Class[]"] }, {"name":"getDeclaredConstructors","parameterTypes":[] }, {"name":"getDeclaredField","parameterTypes":["java.lang.String"] }, {"name":"getDeclaredFields","parameterTypes":[] }, {"name":"getDeclaredMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getDeclaredMethods","parameterTypes":[] }, {"name":"getDeclaringClass","parameterTypes":[] }, {"name":"getEnclosingClass","parameterTypes":[] }, {"name":"getEnclosingConstructor","parameterTypes":[] }, {"name":"getEnclosingMethod","parameterTypes":[] }, {"name":"getEnumConstants","parameterTypes":[] }, {"name":"getField","parameterTypes":["java.lang.String"] }, {"name":"getFields","parameterTypes":[] }, {"name":"getGenericInterfaces","parameterTypes":[] }, {"name":"getGenericSuperclass","parameterTypes":[] }, {"name":"getInterfaces","parameterTypes":[] }, {"name":"getMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getMethods","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getNestHost","parameterTypes":[] }, {"name":"getNestMembers","parameterTypes":[] }, {"name":"getPackage","parameterTypes":[] }, {"name":"getPackageName","parameterTypes":[] }, {"name":"getProtectionDomain","parameterTypes":[] }, {"name":"getSimpleName","parameterTypes":[] }, {"name":"getSuperclass","parameterTypes":[] }, {"name":"getTypeName","parameterTypes":[] }, {"name":"getTypeParameters","parameterTypes":[] }, {"name":"isAnnotation","parameterTypes":[] }, {"name":"isAnnotationPresent","parameterTypes":["java.lang.Class"] }, {"name":"isAnonymousClass","parameterTypes":[] }, {"name":"isArray","parameterTypes":[] }, {"name":"isAssignableFrom","parameterTypes":["java.lang.Class"] }, {"name":"isEnum","parameterTypes":[] }, {"name":"isInstance","parameterTypes":["java.lang.Object"] }, {"name":"isInterface","parameterTypes":[] }, {"name":"isLocalClass","parameterTypes":[] }, {"name":"isMemberClass","parameterTypes":[] }, {"name":"isNestmateOf","parameterTypes":["java.lang.Class"] }, {"name":"isPrimitive","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }, {"name":"toGenericString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ClassLoader",
+  "methods":[{"name":"getName","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Object",
+  "allPublicFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllPublicConstructors":true,
+  "methods":[{"name":"equals","parameterTypes":["java.lang.Object"] }, {"name":"getClass","parameterTypes":[] }, {"name":"hashCode","parameterTypes":[] }, {"name":"toString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ObjectBeanInfo"
+},
+{
+  "name":"java.lang.ObjectCustomizer"
+},
+{
+  "name":"java.lang.Package",
+  "methods":[{"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotations","parameterTypes":[] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaredAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getImplementationTitle","parameterTypes":[] }, {"name":"getImplementationVendor","parameterTypes":[] }, {"name":"getImplementationVersion","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getPackage","parameterTypes":["java.lang.String"] }, {"name":"getSpecificationTitle","parameterTypes":[] }, {"name":"getSpecificationVendor","parameterTypes":[] }, {"name":"getSpecificationVersion","parameterTypes":[] }, {"name":"isAnnotationPresent","parameterTypes":["java.lang.Class"] }, {"name":"isCompatibleWith","parameterTypes":["java.lang.String"] }, {"name":"isSealed","parameterTypes":[] }, {"name":"isSealed","parameterTypes":["java.net.URL"] }]
+},
+{
+  "name":"java.lang.Runtime",
+  "methods":[{"name":"availableProcessors","parameterTypes":[] }, {"name":"freeMemory","parameterTypes":[] }, {"name":"maxMemory","parameterTypes":[] }, {"name":"totalMemory","parameterTypes":[] }, {"name":"version","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.RuntimePermission"
+},
+{
+  "name":"java.lang.String"
+},
+{
+  "name":"java.lang.System",
+  "methods":[{"name":"currentTimeMillis","parameterTypes":[] }, {"name":"getProperties","parameterTypes":[] }, {"name":"getProperty","parameterTypes":["java.lang.String"] }, {"name":"getProperty","parameterTypes":["java.lang.String","java.lang.String"] }, {"name":"getenv","parameterTypes":[] }, {"name":"getenv","parameterTypes":["java.lang.String"] }, {"name":"identityHashCode","parameterTypes":["java.lang.Object"] }, {"name":"lineSeparator","parameterTypes":[] }, {"name":"mapLibraryName","parameterTypes":["java.lang.String"] }, {"name":"nanoTime","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Thread",
+  "allPublicFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllPublicConstructors":true,
+  "fields":[{"name":"threadLocalRandomProbe"}],
+  "methods":[{"name":"activeCount","parameterTypes":[] }, {"name":"checkAccess","parameterTypes":[] }, {"name":"countStackFrames","parameterTypes":[] }, {"name":"getId","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getPriority","parameterTypes":[] }, {"name":"getState","parameterTypes":[] }, {"name":"getThreadGroup","parameterTypes":[] }, {"name":"holdsLock","parameterTypes":["java.lang.Object"] }, {"name":"interrupted","parameterTypes":[] }, {"name":"isAlive","parameterTypes":[] }, {"name":"isDaemon","parameterTypes":[] }, {"name":"isInterrupted","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ThreadGroup",
+  "methods":[{"name":"activeCount","parameterTypes":[] }, {"name":"activeGroupCount","parameterTypes":[] }, {"name":"checkAccess","parameterTypes":[] }, {"name":"getMaxPriority","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getParent","parameterTypes":[] }, {"name":"isDaemon","parameterTypes":[] }, {"name":"isDestroyed","parameterTypes":[] }, {"name":"parentOf","parameterTypes":["java.lang.ThreadGroup"] }]
+},
+{
+  "name":"java.lang.Throwable",
+  "methods":[{"name":"initCause","parameterTypes":["java.lang.Throwable"] }]
+},
+{
+  "name":"java.lang.annotation.Annotation",
+  "methods":[{"name":"annotationType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.constant.ClassDesc",
+  "methods":[{"name":"arrayType","parameterTypes":[] }, {"name":"arrayType","parameterTypes":["int"] }, {"name":"componentType","parameterTypes":[] }, {"name":"descriptorString","parameterTypes":[] }, {"name":"displayName","parameterTypes":[] }, {"name":"isArray","parameterTypes":[] }, {"name":"isClassOrInterface","parameterTypes":[] }, {"name":"isPrimitive","parameterTypes":[] }, {"name":"packageName","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.AccessibleObject",
+  "allPublicFields":true,
+  "queryAllPublicMethods":true,
+  "queryAllPublicConstructors":true,
+  "methods":[{"name":"canAccess","parameterTypes":["java.lang.Object"] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotations","parameterTypes":[] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaredAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"isAccessible","parameterTypes":[] }, {"name":"isAnnotationPresent","parameterTypes":["java.lang.Class"] }]
+},
+{
+  "name":"java.lang.reflect.AnnotatedElement",
+  "methods":[{"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotations","parameterTypes":[] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaredAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"isAnnotationPresent","parameterTypes":["java.lang.Class"] }]
+},
+{
+  "name":"java.lang.reflect.AnnotatedType",
+  "methods":[{"name":"getAnnotatedOwnerType","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotations","parameterTypes":[] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Constructor",
+  "methods":[{"name":"getAnnotatedReceiverType","parameterTypes":[] }, {"name":"getAnnotatedReturnType","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaringClass","parameterTypes":[] }, {"name":"getExceptionTypes","parameterTypes":[] }, {"name":"getGenericExceptionTypes","parameterTypes":[] }, {"name":"getGenericParameterTypes","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getParameterAnnotations","parameterTypes":[] }, {"name":"getParameterCount","parameterTypes":[] }, {"name":"getParameterTypes","parameterTypes":[] }, {"name":"getTypeParameters","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }, {"name":"isVarArgs","parameterTypes":[] }, {"name":"toGenericString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Executable",
+  "methods":[{"name":"getAnnotatedExceptionTypes","parameterTypes":[] }, {"name":"getAnnotatedParameterTypes","parameterTypes":[] }, {"name":"getAnnotatedReceiverType","parameterTypes":[] }, {"name":"getAnnotatedReturnType","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaringClass","parameterTypes":[] }, {"name":"getExceptionTypes","parameterTypes":[] }, {"name":"getGenericExceptionTypes","parameterTypes":[] }, {"name":"getGenericParameterTypes","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getParameterAnnotations","parameterTypes":[] }, {"name":"getParameterCount","parameterTypes":[] }, {"name":"getParameterTypes","parameterTypes":[] }, {"name":"getParameters","parameterTypes":[] }, {"name":"getTypeParameters","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }, {"name":"isVarArgs","parameterTypes":[] }, {"name":"toGenericString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Field",
+  "methods":[{"name":"getAnnotatedType","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaringClass","parameterTypes":[] }, {"name":"getGenericType","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getType","parameterTypes":[] }, {"name":"isEnumConstant","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }, {"name":"toGenericString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.GenericDeclaration",
+  "methods":[{"name":"getTypeParameters","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Member",
+  "methods":[{"name":"getDeclaringClass","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Method",
+  "methods":[{"name":"getAnnotatedReturnType","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaringClass","parameterTypes":[] }, {"name":"getDefaultValue","parameterTypes":[] }, {"name":"getExceptionTypes","parameterTypes":[] }, {"name":"getGenericExceptionTypes","parameterTypes":[] }, {"name":"getGenericParameterTypes","parameterTypes":[] }, {"name":"getGenericReturnType","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getParameterAnnotations","parameterTypes":[] }, {"name":"getParameterCount","parameterTypes":[] }, {"name":"getParameterTypes","parameterTypes":[] }, {"name":"getReturnType","parameterTypes":[] }, {"name":"getTypeParameters","parameterTypes":[] }, {"name":"isBridge","parameterTypes":[] }, {"name":"isDefault","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }, {"name":"isVarArgs","parameterTypes":[] }, {"name":"toGenericString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Parameter",
+  "methods":[{"name":"getAnnotatedType","parameterTypes":[] }, {"name":"getAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getAnnotations","parameterTypes":[] }, {"name":"getAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotation","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaredAnnotations","parameterTypes":[] }, {"name":"getDeclaredAnnotationsByType","parameterTypes":["java.lang.Class"] }, {"name":"getDeclaringExecutable","parameterTypes":[] }, {"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getParameterizedType","parameterTypes":[] }, {"name":"getType","parameterTypes":[] }, {"name":"isImplicit","parameterTypes":[] }, {"name":"isNamePresent","parameterTypes":[] }, {"name":"isSynthetic","parameterTypes":[] }, {"name":"isVarArgs","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Type",
+  "methods":[{"name":"getTypeName","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.TypeVariable",
+  "methods":[{"name":"getAnnotatedBounds","parameterTypes":[] }, {"name":"getBounds","parameterTypes":[] }, {"name":"getGenericDeclaration","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }]
+},
+{
+  "name":"java.net.NetPermission"
+},
+{
+  "name":"java.net.SocketPermission"
+},
+{
+  "name":"java.net.URI",
+  "methods":[{"name":"compareTo","parameterTypes":["java.lang.Object"] }, {"name":"compareTo","parameterTypes":["java.net.URI"] }, {"name":"create","parameterTypes":["java.lang.String"] }, {"name":"getAuthority","parameterTypes":[] }, {"name":"getFragment","parameterTypes":[] }, {"name":"getHost","parameterTypes":[] }, {"name":"getPath","parameterTypes":[] }, {"name":"getPort","parameterTypes":[] }, {"name":"getQuery","parameterTypes":[] }, {"name":"getRawAuthority","parameterTypes":[] }, {"name":"getRawFragment","parameterTypes":[] }, {"name":"getRawPath","parameterTypes":[] }, {"name":"getRawQuery","parameterTypes":[] }, {"name":"getRawSchemeSpecificPart","parameterTypes":[] }, {"name":"getRawUserInfo","parameterTypes":[] }, {"name":"getScheme","parameterTypes":[] }, {"name":"getSchemeSpecificPart","parameterTypes":[] }, {"name":"getUserInfo","parameterTypes":[] }, {"name":"isAbsolute","parameterTypes":[] }, {"name":"isOpaque","parameterTypes":[] }, {"name":"normalize","parameterTypes":[] }, {"name":"parseServerAuthority","parameterTypes":[] }, {"name":"relativize","parameterTypes":["java.net.URI"] }, {"name":"resolve","parameterTypes":["java.lang.String"] }, {"name":"resolve","parameterTypes":["java.net.URI"] }, {"name":"toASCIIString","parameterTypes":[] }, {"name":"toURL","parameterTypes":[] }]
+},
+{
+  "name":"java.net.URL",
+  "methods":[{"name":"getAuthority","parameterTypes":[] }, {"name":"getDefaultPort","parameterTypes":[] }, {"name":"getFile","parameterTypes":[] }, {"name":"getHost","parameterTypes":[] }, {"name":"getPath","parameterTypes":[] }, {"name":"getPort","parameterTypes":[] }, {"name":"getProtocol","parameterTypes":[] }, {"name":"getQuery","parameterTypes":[] }, {"name":"getRef","parameterTypes":[] }, {"name":"getUserInfo","parameterTypes":[] }, {"name":"sameFile","parameterTypes":["java.net.URL"] }, {"name":"toExternalForm","parameterTypes":[] }, {"name":"toURI","parameterTypes":[] }]
+},
+{
+  "name":"java.net.URLPermission",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String"] }]
+},
+{
+  "name":"java.security.AllPermission"
+},
+{
+  "name":"java.security.ProtectionDomain"
+},
+{
+  "name":"java.security.SecureRandomParameters"
+},
+{
+  "name":"java.security.SecurityPermission"
+},
+{
+  "name":"java.util.PropertyPermission"
+},
+{
+  "name":"java.util.concurrent.ConcurrentMap",
+  "methods":[{"name":"remove","parameterTypes":["java.lang.Object","java.lang.Object"] }]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicBoolean",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicMarkableReference",
+  "fields":[{"name":"pair"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicReference",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.Striped64",
+  "fields":[{"name":"base"}, {"name":"cellsBusy"}]
+},
+{
+  "name":"javax.smartcardio.CardPermission"
+},
+{
+  "name":"org.apache.log.Logger"
+},
+{
+  "name":"org.apache.log4j.Logger"
+},
+{
+  "name":"org.python.core.PyObject"
+},
+{
+  "name":"org.zeroturnaround.javarebel.ClassEventListener"
+},
+{
+  "name":"sun.security.provider.DRBG",
+  "methods":[{"name":"<init>","parameterTypes":["java.security.SecureRandomParameters"] }]
+},
+{
+  "name":"sun.security.provider.SHA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA256",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"xyz.ronella.template.exporter.model.Metrics",
+  "queryAllPublicMethods":true,
+  "queryAllPublicConstructors":true,
+  "methods":[{"name":"getRandom","parameterTypes":[] }]
+},
+{
+  "name":"xyz.ronella.template.exporter.model.MetricsBeanInfo"
+},
+{
+  "name":"xyz.ronella.template.exporter.model.MetricsCustomizer"
+}
+]

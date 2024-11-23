@@ -1,5 +1,12 @@
 package xyz.ronella.template.exporter.commons;
 
+/**
+ * The enumeration of response status.
+ *
+ * @since 1.0.0
+ * @author Ron Webb
+ */
+@SuppressWarnings("PMD.LongVariable")
 public enum ResponseStatus {
     CONTINUE(100),
     SWITCHING_PRODTOCOLS(101),

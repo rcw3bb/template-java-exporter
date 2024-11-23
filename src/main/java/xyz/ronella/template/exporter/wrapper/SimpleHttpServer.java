@@ -6,6 +6,7 @@ import xyz.ronella.template.exporter.commons.ResponseStatus;
 import xyz.ronella.template.exporter.config.AppConfig;
 import xyz.ronella.template.exporter.controller.impl.MetricsResources;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
@@ -15,7 +16,7 @@ import java.net.InetSocketAddress;
  * @author Ron Webb
  * @since 1.0.0
  */
-final public class SimpleHttpServer {
+final public class SimpleHttpServer implements Closeable {
 
     private static final AppConfig CONFIG= AppConfig.INSTANCE;
 
@@ -59,4 +60,8 @@ final public class SimpleHttpServer {
         return new SimpleHttpServer();
     }
 
+    @Override
+    public void close() throws IOException {
+        stop();
+    }
 }
