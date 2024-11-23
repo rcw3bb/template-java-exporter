@@ -22,7 +22,7 @@ plugins {
     alias(libs.plugins.moduleplugin)
     alias(libs.plugins.jlink)
     alias(libs.plugins.shadow)
-    alias(libs.plugins.snyk)
+    //alias(libs.plugins.snyk)
 }
 
 group 'xyz.ronella.template'
@@ -73,6 +73,9 @@ shadowJar {
         exclude(dependency('ch.qos.logback:.*:.*'))
         exclude(dependency('org.freemarker:.*:.*'))
     }
+    dependsOn(test
+            //,'snyk-monitor'
+    )
 }
 
 java {
@@ -98,6 +101,7 @@ processResources {
 test {
     dependsOn(pmdMain)
     finalizedBy(jacocoTestReport)
+    //finalizedBy('snyk-test')
     useJUnitPlatform()
 }
 
@@ -111,6 +115,18 @@ javadoc {
     }
 }
 
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": project.name,
+                "Implementation-Version": project.version
+        )
+    }
+    dependsOn(test
+            //,'snyk-monitor'
+    )
+}
+
 pmd {
     consoleOutput = true
     toolVersion = "7.7.0"
@@ -120,6 +136,14 @@ pmd {
 }
 
 pmdTest.enabled = false
+
+/*snyk {
+    arguments = '--all-sub-projects'
+    severity = 'low'
+    api = "${snykToken}"
+    autoDownload = true
+    autoUpdate = true
+}*/
 
 task preparePackage(group: 'build') {
     doLast {

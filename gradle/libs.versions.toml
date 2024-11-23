@@ -6,7 +6,7 @@ logback-version = { strictly = "[1.5,1.6[", require = "latest.release"}
 module-plugin-version = { require = "latest.release"}
 jlink-version = { require = "latest.release"}
 shadow-version = { require = "latest.release"}
-snyk-version = { require = "latest.release" }
+#snyk-version = { require = "latest.release" }
 jackson-databind-version = { require = "latest.release" }
 freemarker-version = { require = "latest.release" }
 lombok-version = { require = "latest.release" }
@@ -27,4 +27,4 @@ logger = ["slf4j-api", "logback-classic", "logger-plus"]
 moduleplugin = { id = "org.javamodularity.moduleplugin", version.ref = "module-plugin-version" }
 jlink = { id = "org.beryx.jlink", version.ref = "jlink-version" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow-version" }
-snyk = { id = "io.snyk.gradle.plugin.snykplugin", version.ref = "snyk-version" }
+#snyk = { id = "io.snyk.gradle.plugin.snykplugin", version.ref = "snyk-version" }
